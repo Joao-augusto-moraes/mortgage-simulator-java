@@ -14,8 +14,10 @@ public class Terreno extends Financiamento {
     public int getTipo_de_terreno() {
         return this.tipo_de_terreno;
     }
+    // Terreno tem acrescimo de 2% na parcela (risco maior de inadimplencia).
+    // Usa 1.02 (double): a versao anterior usava 102 / 100, divisao inteira que resultava em 1.
     public double calcular_pagamento_mensal() {
-        return (this.valorImovel / (this.prazoFinanciamento * 12)) * (1 + (this.taxaJurosAnual / 100 / 12))* (102 / 100);
+        return super.calcular_pagamento_mensal() * 1.02;
     }
 
     @Override

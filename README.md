@@ -47,17 +47,25 @@ src/
 └── Utilizar/                       # Entrada do usuário e exceção personalizada
 ```
 
-## ⚠️ Limitações conhecidas
+## 🧮 Regras de cálculo
 
-As fórmulas foram simplificadas para o exercício e **não refletem um financiamento real**:
+Todas as parcelas usam a **Tabela Price** (parcela fixa com juros compostos):
 
-- A parcela base aplica só um mês de juros, sem juros compostos. Num imóvel de R$ 300 mil em 30 anos a 10% ao ano, o sistema mostra cerca de R$ 1.000 por mês, enquanto a Tabela Price daria cerca de R$ 2.633
-- A fórmula do `Apartamento` gera valores irreais (parcelas na casa dos milhões)
-- No `Terreno`, o acréscimo de 2% não é aplicado, porque `102 / 100` é uma divisão inteira e resulta em 1
-- Se o usuário digitar letras no lugar de números, o programa encerra com erro
+```
+PMT = V × i / (1 − (1 + i)^−n)
+V = valor do imóvel · i = taxa mensal · n = número de meses
+```
+
+| Tipo | Regra | Exemplo (R$ 300 mil, 30 anos, 10% a.a.) |
+|---|---|---|
+| Apartamento | Price pura | R$ 2.632,71 |
+| Casa | Price + R$ 80 de seguro por parcela | R$ 2.712,71 |
+| Terreno | Price + 2% (risco de inadimplência) | R$ 2.685,37 |
+
+Se o usuário digitar letras no lugar de números, o sistema avisa e pede o valor de novo.
 
 ## 🔭 Próximos passos
 
-- [ ] Implementar a Tabela Price (ou SAC) e criar testes com JUnit comparando com valores de referência
-- [ ] Tratar `InputMismatchException` na leitura do teclado
+- [ ] Criar testes com JUnit comparando com valores de referência
+- [ ] Adicionar a opção de amortização SAC
 - [ ] Padronizar nomes no estilo Java (camelCase e pacotes em minúsculas)
