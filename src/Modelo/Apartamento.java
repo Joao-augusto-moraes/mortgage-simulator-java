@@ -20,19 +20,7 @@ public class Apartamento extends Financiamento {
         return this.numero_andar;
     }
 
-    public double getCalcular_taxa_mensal() {
-        return calcular_taxa_mensal();
-    }
-
-    public double calcular_pagamento_mensal() {
-        return  (this.valorImovel * (1 + this.calcular_taxa_mensal() + Math.pow(this.prazo_meses(), 1)) / (1 + this.calcular_taxa_mensal()) + Math.pow(prazo_meses() - 1, 1));
-    }
-    public double calcular_taxa_mensal() {
-        return (this.taxaJurosAnual / 12);
-    }
-    public int prazo_meses() {
-        return (this.prazoFinanciamento * 12);
-    }
+    // Apartamento usa a Tabela Price sem acrescimos, herdada de Financiamento.
 
     @Override
     public String toString() {

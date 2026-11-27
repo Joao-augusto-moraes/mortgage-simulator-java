@@ -28,9 +28,11 @@ public class Casa extends Financiamento {
         }
     }
 
+    // Casa paga um acrescimo fixo de R$ 80 por parcela (seguro obrigatorio).
+    // Se o acrescimo for maior que os juros da primeira parcela, ele e limitado ao valor dos juros.
     public double calcular_pagamento_mensal() {
         double valor_acrescimo =  80;
-        double valor_juros = super.calcular_pagamento_mensal() - (valorImovel / (prazoFinanciamento * 12));
+        double valor_juros = this.valorImovel * this.taxa_mensal();
         try {
             acrescimoMaiorQueJuros (valor_acrescimo, valor_juros);
         } catch (AcrescimoMaiorQuejurosException excessao) {
