@@ -1,5 +1,7 @@
 # Simulador de Financiamento Imobiliário (Java)
 
+> 🎓 **Projeto acadêmico** · Análise e Desenvolvimento de Sistemas, PUCPR · 2025
+
 Aplicação de console em Java que simula financiamentos de **casas, apartamentos e terrenos**, calculando parcela mensal e valor total pago. Projeto da disciplina de Fundamentos da Programação Orientada a Objetos (PUCPR).
 
 ## 🧱 Stack
